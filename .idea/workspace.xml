@@ -20,17 +20,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="p2.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/p2.py">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding>
-                <marker date="1511519274000" expanded="true" signature="0:125" ph="..." />
-                <marker date="1511519274000" expanded="true" signature="0:146" ph="..." />
-                <marker date="1511519274000" expanded="true" signature="306:635" ph="..." />
-                <marker date="1511519274000" expanded="true" signature="306:674" ph="..." />
-              </folding>
+            <state relative-caret-position="38">
+              <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -45,6 +40,7 @@
         <option value="$PROJECT_DIR$/practice1.py" />
         <option value="$PROJECT_DIR$/p1.py" />
         <option value="$PROJECT_DIR$/p2.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -2490,9 +2486,28 @@
           <folding>
             <marker date="1511519274000" expanded="true" signature="0:125" ph="..." />
             <marker date="1511519274000" expanded="true" signature="0:146" ph="..." />
+            <marker date="1511519274000" expanded="true" signature="0:174" ph="..." />
+            <marker date="1511519274000" expanded="true" signature="175:277" ph="import ..." />
             <marker date="1511519274000" expanded="true" signature="306:635" ph="..." />
             <marker date="1511519274000" expanded="true" signature="306:674" ph="..." />
+            <marker date="1511519274000" expanded="true" signature="306:688" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
