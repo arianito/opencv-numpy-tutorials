@@ -1,4 +1,4 @@
-# Image Processing Basics with Python and OpenCV
+# Image Processing with Python and OpenCV
 
 make sure you have python 3 installed on your environment:
 
