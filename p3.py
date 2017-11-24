@@ -2,6 +2,7 @@
 # Written by Aryan Alikhani
 #
 # Loading image into opencv and view it by matplotlib
+# visit https://github.com/ary4n/opencv-numpy-tutorialss
 #
 
 # importing essential libraries just like before.
@@ -12,19 +13,36 @@ import matplotlib.widgets as widget
 
 
 if __name__ == '__main__':
-	# first load our desired image
-	first_image = cv2.imread('cameraman.jpg');
+	# create two plot side by side by setting columns to one
+	window, ploting_context = plt.subplots(1, 2, sharey='row', figsize=(13, 6))
 
-	# crearing context like before
-	fig, ploting_context = plt.subplots(1, 1, sharey='row', figsize=(9, 6))
+	window.subplots_adjust(bottom=0.25)
 
-	# set some titles
-	fig.canvas.set_window_title('Figure')
-	fig.suptitle('Loading image into opencv')
+	# load ploting views into new variables
+	plot_left = ploting_context[0]
+	plot_right = ploting_context[1]
 
-	# show image in figure
-	ploting_context.imshow(first_image, interpolation='bicubic')
 
+	# set titles
+	window.canvas.set_window_title('Figure')
+	window.suptitle('Create B/W Image')
+	plot_left.set_title('Original Image')
+	plot_right.set_title('Grayscale Image')
+
+
+	# load image into memory
+	source = cv2.imread('lena.jpg', cv2.IMREAD_COLOR);
+
+	# show original image on left plot
+	plot_left.imshow(cv2.cvtColor(source, cv2.COLOR_RGB2BGR), interpolation='bicubic')
+
+	# create a new black and white image
+	gray_img = cv2.cvtColor(source, cv2.COLOR_BGR2GRAY)
+
+	# view it on right plot
+	plot_right.imshow(gray_img, cmap='gray', interpolation='bicubic')
+
+	# done!
 
 	plt.show()
 

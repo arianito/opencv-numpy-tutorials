@@ -2,6 +2,7 @@
 # Written by Aryan Alikhani
 #
 # Loading image into opencv and view it by matplotlib
+# visit https://github.com/ary4n/opencv-numpy-tutorialss
 #
 
 # importing essential libraries just like before.
@@ -13,19 +14,20 @@ import matplotlib.widgets as widget
 
 if __name__ == '__main__':
 	# crearing context like before
-	fig, ploting_context = plt.subplots(1, 1, sharey='row', figsize=(9, 6))
+	window, ploting_context = plt.subplots(1, 1, sharey='row', figsize=(6, 6))
 
 	# set some titles
-	fig.canvas.set_window_title('Figure')
-	fig.suptitle('Loading image into opencv')
-
+	window.canvas.set_window_title('Figure')
+	window.suptitle('Loading image into opencv')
+	ploting_context.set_title('Our favorite Camera man!')
 
 	# loading image is so simple like:
-	image = cv2.imread('stars.jpg');
+	source = cv2.imread('cameraman.jpg');
+
 
 	# and add it to ploting window
-	ploting_context.imshow(image, interpolation='bicubic')
-
+	# change opencv color mapping from BGR to RGB cause matplotlib only knows how to show RGB images
+	ploting_context.imshow(cv2.cvtColor(source, cv2.COLOR_RGB2BGR), interpolation='bicubic')
 
 	plt.show()
 

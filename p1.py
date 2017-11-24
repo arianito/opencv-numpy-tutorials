@@ -2,6 +2,7 @@
 # Written by Aryan Alikhani
 #
 # Introduction how to use Matplotlib And Numpy
+# visit https://github.com/ary4n/opencv-numpy-tutorials
 #
 
 # numpy is a common way to build and manipulate matrix operations in a simples posible way, just as awesome as matlab is.
@@ -33,17 +34,18 @@ time_steps = np.arange(-10.0, 10.0, 0.02)
 # make sure that we are running on console
 if __name__ == '__main__':
 	# create a ploting view first argument is number of rows and second is number of columns, we just need one ploting view so ..
-	fig, ploting_context = plt.subplots(1, 1, sharey='row', figsize=(9, 6))
+	window, ploting_context = plt.subplots(1, 1, sharey='row', figsize=(9, 6))
 
 	# set some titles
-	fig.canvas.set_window_title('Figure')
-	fig.suptitle('Introduction how to use Matplotlib And Numpy')
+	window.canvas.set_window_title('Figure')
+	window.suptitle('Introduction how to use Matplotlib And Numpy')
+	# adjust ploting margins, for better viewing i guess?
+	window.subplots_adjust(left=0.25, bottom=0.25)
+
+
 
 	# enable grids
 	ploting_context.grid()
-
-	# adjust ploting margins, for better viewing i guess?
-	plt.subplots_adjust(left=0.25, bottom=0.25)
 
 
 	# now that we have created our ploting context, now we could add a plot, the first parameter is a array of numbers which it represents
@@ -57,12 +59,11 @@ if __name__ == '__main__':
 
 
 	# now we first create two axes, axes are containers in matplotlib, we use them to put our sliders in every each of them.
-	axe_time = fig.add_axes([0.25, 0.1, 0.65, 0.03], facecolor='gray')
 	# second slider for amplitude, your gonna like it.
-	axe_ampl = fig.add_axes([0.25, 0.15, 0.65, 0.03], facecolor='gray')
-
-	# reset button ..
-	axe_reset = fig.add_axes([0.03, 0.15, 0.1, 0.03], facecolor='gray')
+	# and next is reset button ..
+	axe_time = window.add_axes([0.25, 0.1, 0.65, 0.03], facecolor='gray')
+	axe_ampl = window.add_axes([0.25, 0.15, 0.65, 0.03], facecolor='gray')
+	axe_reset = window.add_axes([0.03, 0.15, 0.1, 0.03], facecolor='gray')
 
 	# now the sliders take and axe as input and we tell slider ranges, name
 	slider_time = widget.Slider(axe_time, 'Time Scale', 0., 40., 10.)
@@ -80,7 +81,7 @@ if __name__ == '__main__':
 
 		plot1.set_data(time_steps, sinc(time_steps))
 
-		fig.canvas.draw_idle()
+		window.canvas.draw_idle()
 		pass
 
 	def on_time_change(val):
@@ -94,7 +95,7 @@ if __name__ == '__main__':
 		# request ploting view to recalculate the max and mins and fit the graph on screen
 		ploting_context.relim()
 		ploting_context.autoscale_view()
-		fig.canvas.draw_idle()
+		window.canvas.draw_idle()
 		pass
 
 	# reset everything!
@@ -106,7 +107,7 @@ if __name__ == '__main__':
 
 		ploting_context.relim()
 		ploting_context.autoscale_view()
-		fig.canvas.draw_idle()
+		window.canvas.draw_idle()
 		pass
 
 	# done!!!
