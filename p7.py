@@ -34,8 +34,8 @@ if __name__ == '__main__':
 
 	color = ('b', 'g', 'r')
 	for i, col in enumerate(color):
-		histr = cv2.calcHist([source], [i], None, [256], [0, 256])
-		plot_hist.plot(histr, color=col)
+		hist = cv2.calcHist([source], [i], None, [1000], [0, 256])
+		plot_hist.plot(hist, color=col, alpha=0.5)
 
 
 

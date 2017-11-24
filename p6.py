@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
 	height, width = gshape = gray_img.shape
 
-	blank_image = gray_img.copy()
+	blank_image = np.zeros((height, width, 1), dtype=np.uint8)
 
 	for i in range(4):
 		for j in range(2):
