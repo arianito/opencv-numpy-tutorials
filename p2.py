@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
 	# and add it to ploting window
 	# change opencv color mapping from BGR to RGB cause matplotlib only knows how to show RGB images
-	ploting_context.imshow(cv2.cvtColor(source, cv2.COLOR_RGB2BGR), interpolation='bicubic')
+	ploting_context.imshow(cv2.cvtColor(source, cv2.COLOR_BGR2RGB), interpolation='bicubic')
 
 	plt.show()
 

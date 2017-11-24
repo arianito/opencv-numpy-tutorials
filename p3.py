@@ -1,7 +1,7 @@
 # Image Processing - Fall 2017 - IAUD
 # Written by Aryan Alikhani
 #
-# Loading image into opencv and view it by matplotlib
+# B/W Image using opencv
 # visit https://github.com/ary4n/opencv-numpy-tutorialss
 #
 
@@ -33,7 +33,7 @@ if __name__ == '__main__':
 	source = cv2.imread('lena.jpg', cv2.IMREAD_COLOR);
 
 	# show original image on left plot
-	plot_left.imshow(cv2.cvtColor(source, cv2.COLOR_RGB2BGR), interpolation='bicubic')
+	plot_left.imshow(cv2.cvtColor(source, cv2.COLOR_BGR2RGB), interpolation='bicubic')
 
 	# create a new black and white image
 	gray_img = cv2.cvtColor(source, cv2.COLOR_BGR2GRAY)

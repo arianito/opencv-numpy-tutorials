@@ -1,7 +1,7 @@
 # Image Processing - Fall 2017 - IAUD
 # Written by Aryan Alikhani
 #
-# Binary b/w image
+# Find center of dark objects in screen
 # visit https://github.com/ary4n/opencv-numpy-tutorialss
 #
 
@@ -24,16 +24,14 @@ if __name__ == '__main__':
 
 	# set titles
 	window.canvas.set_window_title('Figure')
-	window.suptitle('Create binary b/w image using threshold function')
+	window.suptitle('Find center of dark objects in screen')
 	plot_left.set_title('Original Image')
-	plot_right.set_title('Grayscale Image')
+	plot_right.set_title('Centers')
 
-	# set margins
-	window.subplots_adjust(bottom=0.25)
 
 
 	# load image into memory
-	source = cv2.imread('cameraman.jpg', cv2.IMREAD_COLOR);
+	source = cv2.imread('coins.jpg', cv2.IMREAD_COLOR);
 
 	# show original image on left plot
 	plot_left.imshow(cv2.cvtColor(source, cv2.COLOR_BGR2RGB), interpolation='bicubic')
@@ -42,28 +40,24 @@ if __name__ == '__main__':
 	gray_img = cv2.cvtColor(source, cv2.COLOR_BGR2GRAY)
 
 	# view it on right plot
-	ploted_image = plot_right.imshow(gray_img, cmap='gray', interpolation='bicubic')
 
 
-	axe_level = window.add_axes([0.25, 0.1, 0.50, 0.03], facecolor='gray')
 
-	slider_level = widget.Slider(axe_level, 'Level', 0, 255, 127)
+	ret, thresh = cv2.threshold(gray_img, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
 
-	def on_change(val):
-		global gray_img
+	kernel = np.ones((3, 3), np.uint8)
+	opening = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel, iterations=2)
 
-		gray_img = cv2.cvtColor(source, cv2.COLOR_BGR2GRAY)
+	# sure background area
+	sure_bg = cv2.dilate(opening, kernel, iterations=3)
 
-		d, output = cv2.threshold(gray_img, val, 255, cv2.THRESH_BINARY)
+	# Finding sure foreground area
+	dist_transform = cv2.distanceTransform(opening, cv2.DIST_L2, 5)
+	ret, sure_fg = cv2.threshold(dist_transform, 0.7 * dist_transform.max(), 255, 0)
 
-		ploted_image.set_data(output)
-
-		window.canvas.draw_idle()
-		pass
-
-
-	on_change(127)
-	slider_level.on_changed(on_change)
+	# Finding unknown region
+	sure_fg = np.uint8(sure_fg)
+	ploted_image = plot_right.imshow(sure_fg, cmap='gray', interpolation='bicubic')
 
 	# done!
 
