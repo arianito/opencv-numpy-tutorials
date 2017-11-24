@@ -39,7 +39,7 @@ if __name__ == '__main__':
 	# set some titles
 	window.canvas.set_window_title('Figure')
 	window.suptitle('Introduction how to use Matplotlib And Numpy')
-	# adjust ploting margins, for better viewing i guess?
+	# adjust ploting margins
 	window.subplots_adjust(left=0.25, bottom=0.25)
 
 
